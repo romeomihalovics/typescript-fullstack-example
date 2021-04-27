@@ -1,0 +1,47 @@
+{
+  "name": "typescript-fullstack-example",
+  "version": "1.0.0",
+  "description": "A very simple full-stack typescript example with vue, express, postgresql",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start:sample-service": "node ./sample-service/dist/sample-service/sample-service.js",
+    "postbuild:sample-service": "tscpaths -p ./sample-service/tsconfig.json -s ./ -o ./sample-service/dist",
+    "compile:sample-service": "tsc --project sample-service && npm run postbuild:sample-service && npm run start:sample-service",
+    "dev:sample-service": "./node_modules/nodemon/bin/nodemon.js -e ts --exec \"npm run compile:sample-service\" --watch sample-service --watch common"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romeomihalovics/typescript-fullstack-example.git"
+  },
+  "keywords": [
+    "typescript",
+    "fullstack",
+    "full-stack",
+    "example",
+    "vue",
+    "express",
+    "postgresql"
+  ],
+  "author": "Romeo Mihalovics <romeo@mihalovics.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romeomihalovics/typescript-fullstack-example/issues"
+  },
+  "homepage": "https://github.com/romeomihalovics/typescript-fullstack-example#readme",
+  "dependencies": {
+    "@types/express": "^4.17.11",
+    "@types/pg": "^7.14.11",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0",
+    "rxjs": "^6.6.7",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "eslint": "^7.25.0",
+    "tscpaths": "0.0.9"
+  }
+}
